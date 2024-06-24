@@ -12,7 +12,7 @@ const App = () => {
       <AppGlobalStyles />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/fing2021" component={CalendarPage} />
+        <Route exact path="/:schoolShortName" component={CalendarPage} />
       </Switch>
     </>
   )

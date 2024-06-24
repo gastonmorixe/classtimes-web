@@ -1,0 +1,25 @@
+query listSubjectsQuery(
+  $filters: ListSubjectInput
+  $first: Float
+  $after: String
+  $before: String
+) {
+  listSubjects(
+    filters: $filters
+    first: $first
+    after: $after
+    before: $before
+  ) {
+    edges {
+      node {
+        _id
+        name
+      }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}

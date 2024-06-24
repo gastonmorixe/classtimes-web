@@ -6,7 +6,14 @@ export const AppGlobalStyles = createGlobalStyle`
   }
 
   :root {
+    /* colors */
     --colors-primary: #000;
+    --primary-purple: #3D2D6B;
+    --primary-purple-transparent: rgba(73,58,117,0.33);
+    --primary-blue: #2825A6;
+    --primary-blue-transparent: rgba(40,37,166,0.33);
+
+    --navbar-height: 70px;
   }
 
   html,

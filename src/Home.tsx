@@ -1,19 +1,14 @@
 import * as React from "react"
 import styled from "styled-components"
 
-import LOGO from "./assets/logo.svg"
+import { Logo } from "./components/Logo"
 
 class Home extends React.Component {
   render() {
     return (
       <Main>
         <h2>
-          <img
-            src={LOGO}
-            alt="ClassTimes Logo"
-            title="ClassTimes"
-            height={112}
-          />
+          <Logo height={112} />
         </h2>
         <h3>Follow your school classes</h3>
       </Main>

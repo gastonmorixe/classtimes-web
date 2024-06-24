@@ -258,7 +258,6 @@ const WeekViewBody: React.FC<IWeekViewBody> = (props) => {
                       const colCount = group.length
                       return Array.from(col).map((ev, eventIndex) => {
                         const { data: event, startDate } = ev
-
                         let topPosition =
                           startDate.hour() + startDate.minute() / 60
                         topPosition *= 100
@@ -267,6 +266,7 @@ const WeekViewBody: React.FC<IWeekViewBody> = (props) => {
 
                         const duration = (event.durationHours * 100) / 24
                         const isRecurrent = !!event.rrule
+                        const toggled = event.toggled
                         // console.log("[WeekViewEventItem]", {
                         //   event,
                         //   startDate,
@@ -278,6 +278,7 @@ const WeekViewBody: React.FC<IWeekViewBody> = (props) => {
                         return (
                           <WeekViewEventWrapper
                             {...{
+                              toggled,
                               isRecurrent,
                               colIndex,
                               colCount,
@@ -570,10 +571,11 @@ interface IWeekViewEventWrapper {
   colIndex: number
   colCount: number
   isRecurrent: boolean
+  toggled: boolean
 }
 
 const WeekViewEventWrapper = styled.div<IWeekViewEventWrapper>`
-  display: flex;
+  display: ${(props) => (props.toggled ? "flex" : "none")};
   line-height: 1;
   position: absolute;
   top: ${(p) => (p.topPosition ? `${p.topPosition}%` : 0)};

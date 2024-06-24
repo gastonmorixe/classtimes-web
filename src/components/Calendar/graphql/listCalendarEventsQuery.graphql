@@ -1,0 +1,34 @@
+query listCalendarEventsQuery(
+  $filters: ListCalendarEventsInput
+  $first: Float
+  $after: String
+  $before: String
+) {
+  listCalendarEvents(
+    filters: $filters
+    first: $first
+    after: $after
+    before: $before
+  ) {
+    edges {
+      node {
+        _id
+        title
+        isAllDay
+        durationHours
+        startDateUtc
+        endDateUtc
+        rrule
+        exceptionsDatesUtc
+        subject {
+          name
+        }
+      }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}
